@@ -48,22 +48,22 @@ In the mind maps above, the domain of sandwich making is investigated. Figure 1.
 * _Necessity diagrams_: unstructured block-like concept maps [21] for representing big blocks of an application that naturally emerge from mind maps.
 
 ![Necessity diagram](images/necessity_diagram.png?raw=true "Necessity diagram")
-Figure 1.6 Necessity diagram
+_Figure 1.6 Necessity diagram_
 
 * _Elements diagrams_: unstructured block-like concept maps for brainstorming the technical domain of the task and expanding the larger blocks from necessity diagrams. There is no limit to granularity or specificity. The diagrams are allowed to be unorganized and unstructured. Blocks may be attributed to layers (e.g., application, domain model, interoperability) and types (e.g., concept, subsystem, model, library, data).
 
 ![Elements diagram](images/elements_diagram.png?raw=true "Elements diagram")
-Figure 1.7 Elements diagram
+_Figure 1.7 Elements diagram_
 
 _Architecture diagrams_: structured block-like concept maps that shape the high-level application architecture. These diagrams finalize the knowledge obtained through the creation of mind maps, necessity diagrams, and elements diagrams.
 
 ![Architecture diagram](images/architecture_diagram.png?raw=true "Architecture diagram")
-Figure 1.8 Architecture diagram
+_Figure 1.8 Architecture diagram_
 
 FDD encourages an iterative approach, allowing for cyclic and sporadic design processes rather than adhering to a strict waterfall model. Figure 1.8 gives an overview of this iterative approach:
 
 ![Iterative approach in FDD](images/iterative_process.png?raw=true "Iterative approach in FDD")
-Figure 1.9 Iterative approach in FDD
+_Figure 1.9 Iterative approach in FDD_
   
 ### Domain Modeling With Interpretable Domain-Specific Languages
 
@@ -156,7 +156,7 @@ Free monad functional interfaces adhere to the SOLID design principles as much a
 The Hierarchical Free Monads (HFM) approach allows for the construction of complex application architectures while maintaining proper separation of concerns, making it an invaluable tool in the FDD methodology. The core idea is to organize Free monadic languages (interfaces) hierarchically by nesting lower-level Free interfaces as arguments or return values of methods of top-level Free interfaces.
 
 ![Free monad interfaces organized hierarchically](images/hfm.png?raw=true "Free monad interfaces organized hierarchically")
-Figure 1.10 Free monad interfaces organized hierarchically
+_Figure 1.10 Free monad interfaces organized hierarchically_
 
 Extending the task of making sandwiches, we could be required to make a restaurant menu composer. In addition to sandwiches, it could be a code for making a circle or square pizzas. The following listing introduces such a language:
 
@@ -202,7 +202,7 @@ makeSandwich receipe =
 The corresponding diagram looks like the following:
 
 ![Free monad interfaces for making meals](images/hfm_example.png?raw=true "Free monad interfaces for making meals")
-Figure 1.11 Free monad interfaces for making meals
+_Figure 1.11 Free monad interfaces for making meals_
 
 Free monad interfaces resemble object-oriented interfaces in the most accurate way. It’s possible to do information hiding, abstraction, and encapsulation with Hierarchical Free Monads in a similar way it’s done in object-oriented languages. For example, it’s possible to ask for an abstracted random recipe for an abstracted meal without revealing what exactly the cooking machine used. This can be achieved by adding another value constructor to CookingMethod:
 
@@ -265,7 +265,7 @@ In the FDD methodology, there are two types of application architectures:
 The HFM approach is used to achieve a 3-layered architecture.
 
 ![Three layers of a Free monad application architecture](images/three_layered_architecture.png?raw=true "Three layers of a Free monad application architecture")
-Figure 1.12 Three layers of a Free monad application architecture
+_Figure 1.12 Three layers of a Free monad application architecture_
 
 The three layers in this approach are
 
@@ -275,8 +275,8 @@ The three layers in this approach are
 
 The HFM approach also respects purity and takes advantage of the separation of pure and impure layers. Pure layer: Free monad interfaces and business logic. Impure layer: interpreters (implementation).
 
-![Three layers of a Free monad application architecture](images/three_layered_architecture.png?raw=true "Three layers of a Free monad application architecture")
-Figure 1.13 Pure and impure layers
+![Pure and impure layers](images/pure_and_impure.png?raw=true "Pure and impure layers")
+_Figure 1.13 Pure and impure layers_
 
 By leveraging the 3-layered application architecture with Free monads, the FDD methodology enables developers to create robust, maintainable, and testable applications that effectively separate concerns and responsibilities across different layers.
 
@@ -296,7 +296,8 @@ Architectural design patterns represent a mechanism used for the whole skeleton 
 
 Functional design patterns address more specific problems within functional programming. Examples of these patterns include the MVar request-response pattern, Typed-untyped pattern, Typed avatar pattern, Control structure pattern, Bracket pattern, and HKD pattern. These patterns provide reusable solutions for implementing common functional programming tasks and workflows.
 
-Figure 1.14 Typed-untyped design pattern
+![Typed-untyped design pattern](images/typed_untyped_pattern.png?raw=true "Typed-untyped design pattern")
+_Figure 1.14 Typed-untyped design pattern_
 
 Lastly, functional idioms are essential building blocks in functional programming that define specific behaviors and properties. Examples of functional idioms include monoid, functor, applicative functor, monad, foldable, and traversable, among others. These idioms form the basis of functional programming, enabling developers to leverage their mathematical properties to write expressive, concise, and reusable code.
 
