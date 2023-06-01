@@ -2,7 +2,11 @@
 
 ## Abstract
 
-The development of real-world applications with high-quality code in statically-typed functional programming languages, such as Haskell, Scala, F#, and PureScript, often encounters challenges in finding a comprehensive and practical methodology. This article introduces Functional Declarative Design, a counterpart to Object-Oriented Design, that aims to provide a complete, practical, and efficient approach to engineering applications in the realm of functional programming. The methodology encompasses a variety of tools, including mind maps, concept maps, functional interfaces, design patterns, hierarchical Free monads, and 3-layered application architecture. Furthermore, Functional Declarative Design redefines several notions, such as Domain-Driven Design, functional interfaces, and SOLID principles, to create a cohesive and applicable source of knowledge for functional programming. The methodology has been successfully tested and implemented in real-world applications and frameworks and has been adapted to other programming languages, such as C++. This article presents the methodology, its components, case studies, and evaluations, offering a promising direction for the development of functional programming applications.
+Statically-typed functional languages boast numerous merits, such as robust type safety, immutability, and expressive syntax, but these can also pose challenges when designing software that effectively solves intricate problems and scales over time. While Object-Oriented Design (OOD) [1] has proven useful in structuring code in its domain, it does not always align with the functional programming paradigm. Predominantly, practices, principles, and methodologies, like Domain-Driven Design [2] and SOLID [3] principles, are centered on object-oriented and imperative programming. Therefore, there is a call for an approach specifically tailored to functional programming's unique requirements. This article introduces Functional Declarative Design (FDD), a counterpart to OOD, specifically crafted to address these needs. FDD offers a practical solution for the design and implementation of superior applications in functional programming. It not only introduces innovative solutions for functional programming difficulties but also reinterprets and adapts established principles from other paradigms, proving itself a comprehensive and adaptable methodology applicable across various functional programming languages and problem domains.
+
+Figure 1.1 Comparison of the two methodologies
+
+This figure describes how the principles of software design can be applied to Object-Oriented Design and Functional Declarative Design. It turns out every principle can be applied to every methodology however some principles require reformulation or are less appropriate in one of those methodologies.
 
 ## Functional Declarative Design Methodology
 
@@ -24,43 +28,35 @@ FDD emphasizes simplicity and the management of complexity in software design. T
 
 Diagrams in FDD are a recommended but not a required way to analyze the business domain, functional and non-functional requirements and to model the architecture of an application.
 
-* Mind maps: These are used for collecting and brainstorming requirements.
+* _Mind maps_: These are used for collecting and brainstorming requirements.
 
-<TODO>
 Figure 1.2 Mind map: sandwich making topics
 
-<TODO>
 Figure 1.3 Mind map: Recipe subtopics
 
-<TODO>
 Figure 1.4 Mind map: Ingredients subtopics
 
-<TODO>
 Figure 1.5 Mind map: Making process subtopics
 
 In the mind maps above, the domain of sandwich making is investigated. Figure 1.2 provides three high-level topics each of which is expanded in figures 1.3 (Recipe), 1.4 (Ingredients), and 1.5 (Making process). The task is simple: having a user-defined recipe for a sandwich, and try to produce it with a machine by feeding it with the available ingredients.
 
-* Necessity diagrams: unstructured block-like concept maps [21] for representing big blocks of an application that naturally emerge from mind maps.
+* _Necessity diagrams_: unstructured block-like concept maps [21] for representing big blocks of an application that naturally emerge from mind maps.
 
-<TODO>
 Figure 1.6 Necessity diagram
 
-* Elements diagrams: unstructured block-like concept maps for brainstorming the technical domain of the task and expanding the larger blocks from necessity diagrams. There is no limit to granularity or specificity. The diagrams are allowed to be unorganized and unstructured. Blocks may be attributed to layers (e.g., application, domain model, interoperability) and types (e.g., concept, subsystem, model, library, data).
+* _Elements diagrams_: unstructured block-like concept maps for brainstorming the technical domain of the task and expanding the larger blocks from necessity diagrams. There is no limit to granularity or specificity. The diagrams are allowed to be unorganized and unstructured. Blocks may be attributed to layers (e.g., application, domain model, interoperability) and types (e.g., concept, subsystem, model, library, data).
 
-<TODO>
 Figure 1.7 Elements diagram
 
-**Architecture diagrams**: structured block-like concept maps that shape the high-level application architecture. These diagrams finalize the knowledge obtained through the creation of mind maps, necessity diagrams, and elements diagrams.
+_Architecture diagrams_: structured block-like concept maps that shape the high-level application architecture. These diagrams finalize the knowledge obtained through the creation of mind maps, necessity diagrams, and elements diagrams.
 
-<TODO>
 Figure 1.8 Architecture diagram
 
 FDD encourages an iterative approach, allowing for cyclic and sporadic design processes rather than adhering to a strict waterfall model. Figure 1.8 gives an overview of this iterative approach:
-  
-<TODO>
+ 
 Figure 1.9 Iterative approach in FDD
   
-c. Domain Modeling With Interpretable Domain-Specific Languages
+### Domain Modeling With Interpretable Domain-Specific Languages
 
 Domain-specific languages (DSLs), particularly embedded DSLs (eDSLs), are central to domain modeling in FDD. Interpretable eDSLs are a recommended way to model the business domain and brainstorm the way of its encoding. Mind maps and elements diagrams work as a source of domain knowledge for designing eDSLs. Interpretable eDSLs can be based on simple or parametrized algebraic data types (ADTs), generalized ADTs (GADTs), and, most importantly, Free monads.
 
@@ -68,6 +64,7 @@ Free monads play a crucial role in FDD as a powerful counterpart to OOP interfac
 
 The following code reflects the domain of sandwich making directly taken from the mind maps:
 
+```haskell
 data BreadType = Baguette | Toast
 
 data Component
@@ -75,9 +72,11 @@ data Component
   | Tomato
   | Salt
   | Cheese
+```
 
 The next snipped demonstrates a domain-specific language for composing sandwich recipes and introduces two domain types for complete and incomplete sandwiches:
 
+```haskell
 data SandwichBody = SandwichBody BreadType [Component]
   
 data Sandwich = Sandwich BreadType (Maybe BreadType) [Component]
@@ -88,30 +87,37 @@ data SandwichConstructor next
   | FinishSandwich (Maybe BreadType) SandwichBody (Sandwich -> next)
 
 type SandwichRecipe a = Free SandwichConstructor a
+```
 
 This language allows constructing of sandwiches and following the requirements for their structure as it’s described in Figure 1.3. It’s possible to start making a new sandwich, then either finish it or add another component. The sequencing of actions (starting a sandwich should go first) is made through the dependency over the value SandwichBody that is either returned as a result or accepted as an argument. Smart constructors corresponding to the methods of this language communicate the idea of dependency through data in a more explicit way:
 
+```haskell
 startNewSandwich :: BreadType -> Component -> SandwichRecipe SandwichBody
 addComponent :: Component -> SandwichBody -> SandwichRecipe SandwichBody
 finishSandwich :: Maybe BreadType -> SandwichBody -> SandwichRecipe Sandwich
+```
 
 This language design is not of course free of flaws, but it illustrates the concept well. A typical recipe is shown below:
 
+```haskell
 mySandwich :: SandwichRecipe Sandwich
 mySandwich = do
   body1 <- startNewSandwich Toast Tomato
   body2 <- addComponent Cheese body1
   body3 <- addComponent Salt body2
   finishSandwich Nothing body3
+```
 
 The same script of creating a sandwich with one toast, one tomato, one piece of cheese, and a little bit of salt can be written in a more functional way using the same monadic property of the language:
 
+```haskell
 mySandwich :: SandwichRecipe Sandwich
 mySandwich
    = startNewSandwich Toast Tomato
   >= addComponent Cheese
   >= addComponent Salt
   >= finishSandwich Nothing
+```
 
 In FDD, Free monads are considered the most capable functional interface. A Free monad interface can either represent a subsystem or a domain notion with its behavior. Free monadic interfaces are interpretable, and interpreters of interfaces are considered their implementations.
 
@@ -136,14 +142,15 @@ Using a specific Free monad implementation (normal Free [24], Church-encoded Fre
 
 Free monad functional interfaces adhere to the SOLID design principles as much as OO interfaces do.
 
-d. The Hierarchical Free Monads Approach
+### The Hierarchical Free Monads Approach
 
 The Hierarchical Free Monads (HFM) approach allows for the construction of complex application architectures while maintaining proper separation of concerns, making it an invaluable tool in the FDD methodology. The core idea is to organize Free monadic languages (interfaces) hierarchically by nesting lower-level Free interfaces as arguments or return values of methods of top-level Free interfaces.
 
-
 Figure 1.10 Free monad interfaces organized hierarchically
+
 Extending the task of making sandwiches, we could be required to make a restaurant menu composer. In addition to sandwiches, it could be a code for making a circle or square pizzas. The following listing introduces such a language:
 
+```haskell
 data Crust = ThickCrust | ThinCrust
 data PizzaComponent = Salami | AmericanCheese
 data Pizza = Pizza Crust [PizzaComponent]
@@ -153,9 +160,11 @@ data PizzaConstructor next
  | MakeSquarePizza Crust [PizzaComponent] (Pizza -> next)
 
 type PizzaRecipe a = Free PizzaConstructor a
+```
 
 These two languages can finally be merged into a single hierarchy with a unified language, for example, a cooking machine that is able to cook both:
 
+```haskell
 data Meal
  = PreparedPizza Pizza
  | PreparedSandwich Sandwich
@@ -166,9 +175,11 @@ data CookingMethod next
  | MakeSandwich (SandwichRecipe Sandwich) (Sandwich -> next)
 
 type CookingMachine a = Free CookingMethod a
+```
 
 Smart constructors of this language are responsible for wrapping the result into the Meal type:
 
+```haskell
 makePizza :: PizzaRecipe Pizza -> CookingMachine Meal
 makePizza receipe =
   PreparedPizza <$> liftF (MakePizza receipe id)
@@ -176,13 +187,15 @@ makePizza receipe =
 makeSandwich :: SandwichRecipe Sandwich -> CookingMachine Meal
 makeSandwich receipe =
   PreparedSandwich <$> liftF (MakeSandwich receipe id)
+```
 
 The corresponding diagram looks like the following:
 
-
 Figure 1.11 Free monad interfaces for making meals
+
 Free monad interfaces resemble object-oriented interfaces in the most accurate way. It’s possible to do information hiding, abstraction, and encapsulation with Hierarchical Free Monads in a similar way it’s done in object-oriented languages. For example, it’s possible to ask for an abstracted random recipe for an abstracted meal without revealing what exactly the cooking machine used. This can be achieved by adding another value constructor to CookingMethod:
 
+```haskell
 data CookingMethod next
  = MakePizza (PizzaRecipe Pizza) (Pizza -> next)
  | MakeSandwich (SandwichRecipe Sandwich) (Sandwich -> next)
@@ -192,18 +205,21 @@ type CookingMachine a = Free CookingMethod a
 
 makeRandomMeal :: CookingMachine Meal
 makeRandomMeal = join $ liftF (MakeRandomMeal id)
+```
 
 This makes the following script possible:
 
+```haskell
 sampleCookingMachine :: CookingMachine [Meal]
 sampleCookingMachine = do
  sandwich   <- makeSandwich mySandwich
  randomMeal <- makeRandomMeal
  pure [sandwich, randomMeal]
+```
 
 Randomizing the meal is now the responsibility of the interpreter, and it can adopt any randomizing algorithm which is an implementation detail and should not be accounted for in the recipes (business logic). 
 
-e. Inversion of Control and Dependency Injection
+### Inversion of Control and Dependency Injection
 
 Writing business logic against interfaces is generally known as Inversion of Control. This makes the logic to be less fragile by decoupling it from the implementation details. The HFM approach fully supports this, and makes it difficult to bypass the restrictions, in contrast to other approaches.
 
@@ -213,6 +229,7 @@ The mechanisms of implementation substitution can vary for Free monad architectu
 
 The following code listing outlines the idea of substitutable interpreters for the pizza machine while there is only one sandwich-making machine (interpreter) available. The actual implementation can select a pizza maker from the dictionary provided:
 
+```haskell
 runSandwichRecipe :: SandwichRecipe a -> IO a
 runPizzaRecipe :: PizzaRecipe a -> IO a
 
@@ -223,6 +240,7 @@ runCookingMachine
  -> PizzaMakers
  -> CookingMachine a
  -> IO a
+```
 
 The Hierarchical Free Monads approach facilitates the use of real-world interpreters for Free languages, as well as mock interpreters for testing purposes.
 
@@ -235,8 +253,8 @@ In the FDD methodology, there are two types of application architectures:
 
 The HFM approach is used to achieve a 3-layered architecture.
 
-
 Figure 1.12 Three layers of a Free monad application architecture
+
 The three layers in this approach are
 
 * Functional interfaces in the form of hierarchical Free monad languages. These interfaces are primarily pure and devoid of implementation details. Separate Free languages describe specific subsystems such as logging, database, filesystem, and networking. One or several unifying Free languages integrate these languages by nesting them within its methods.
@@ -245,19 +263,19 @@ The three layers in this approach are
 
 The HFM approach also respects purity and takes advantage of the separation of pure and impure layers. Pure layer: Free monad interfaces and business logic. Impure layer: interpreters (implementation).
 
-
 Figure 1.13 Pure and impure layers
+
 By leveraging the 3-layered application architecture with Free monads, the FDD methodology enables developers to create robust, maintainable, and testable applications that effectively separate concerns and responsibilities across different layers.
 
-g. Functional Design Patterns
+### Functional Design Patterns
 
 Design patterns and functional idioms play a significant role in the FDD methodology, as they provide general solutions to common design problems, saving time and effort during the implementation of typical programming tasks.
 
 FDD comes with its own definitions for design patterns and functional idioms.
 
-DEFINITION. A design pattern is the “external” solution to certain types of problems. A pattern is an auxiliary compound mechanism that helps to solve a problem in an abstract, generic way. Design patterns describe how the system should work.
+**DEFINITION**. A design pattern is the “external” solution to certain types of problems. A pattern is an auxiliary compound mechanism that helps to solve a problem in an abstract, generic way. Design patterns describe how the system should work.
 
-DEFINITION. A functional idiom is the “internal” solution to certain types of problems. It addresses the natural properties of the object and the immutable transformations of those properties. The idiom describes what the object is and what inseparable mathematical properties it has.
+**DEFINITION**. A functional idiom is the “internal” solution to certain types of problems. It addresses the natural properties of the object and the immutable transformations of those properties. The idiom describes what the object is and what inseparable mathematical properties it has.
 
 In particular, OOD patterns address objects and mutable interactions between them. An OOD pattern is constructed by using classes, interfaces, inheritance, and encapsulation. In turn, functional idioms introduce new meanings and operations for domain data types.
 
@@ -265,13 +283,13 @@ Architectural design patterns represent a mechanism used for the whole skeleton 
 
 Functional design patterns address more specific problems within functional programming. Examples of these patterns include the MVar request-response pattern, Typed-untyped pattern, Typed avatar pattern, Control structure pattern, Bracket pattern, and HKD pattern. These patterns provide reusable solutions for implementing common functional programming tasks and workflows.
 
-
 Figure 1.14 Typed-untyped design pattern
+
 Lastly, functional idioms are essential building blocks in functional programming that define specific behaviors and properties. Examples of functional idioms include monoid, functor, applicative functor, monad, foldable, and traversable, among others. These idioms form the basis of functional programming, enabling developers to leverage their mathematical properties to write expressive, concise, and reusable code.
 
 In summary, design patterns and functional idioms are vital components of the FDD methodology. They provide developers with a toolbox of reusable solutions and abstractions that enable them to build more maintainable, modular, and robust functional applications.
 
-h. Design Principles
+### Design Principles
 
 The "divide and conquer" principle is a general design principle that emphasizes separating responsibilities for easier understanding and maintenance. This principle helps reduce accidental complexity.
 
@@ -285,27 +303,27 @@ SOLID design principles implement the "divide and conquer" principle in various 
 
 By embracing these design principles and the FDD methodology, developers can create functional applications that are modular, maintainable, and adaptable to changing requirements.
 
-4. Case Studies and Practical Applications of Functional Declarative Design
+## Case Studies and Practical Applications of Functional Declarative Design
 
 This methodology was not developed in a vacuum. It has been used extensively in the development of various real-world technologies and has been proven effective in practical applications. The following case studies illustrate the wide-ranging impact of this methodology in diverse settings:
 
-* Juspay's PureScript Presto [26]: An innovative framework for creating mobile applications. The design revolves around an expressive eDSL, enabling developers to define complex app functionalities with relative ease.
+* _Juspay's PureScript Presto_ [26]: An innovative framework for creating mobile applications. The design revolves around an expressive eDSL, enabling developers to define complex app functionalities with relative ease.
 
-* Juspay's PureScript Presto.Backend [27]: A powerful framework specifically designed for crafting RESTful backend services. This was a natural evolution from Presto, expanding on its foundation with added capabilities such as logging, integration with HTTP APIs, support for key-value and SQL databases, and advanced state handling.
+* _Juspay's PureScript Presto.Backend_ [27]: A powerful framework specifically designed for crafting RESTful backend services. This was a natural evolution from Presto, expanding on its foundation with added capabilities such as logging, integration with HTTP APIs, support for key-value and SQL databases, and advanced state handling.
 
-* Juspay's EulerHS [28]: This is a Haskell reincarnation of the PureScript Presto.Backend framework. EulerHS, tailored for building comprehensive web services and RESTful backends, has opened the door for more Haskell-based projects within the company.
+* _Juspay's EulerHS_ [28]: This is a Haskell reincarnation of the PureScript Presto.Backend framework. EulerHS, tailored for building comprehensive web services and RESTful backends, has opened the door for more Haskell-based projects within the company.
 
 All these frameworks were instrumental in driving Juspay's growth, a leading financial company in India. The company's financial services are primarily built on top of Presto, Presto.Backend, and EulerHS, and newer projects have been entirely developed using EulerHS. The methodology's abstraction of complex implementation details behind user-friendly interfaces has simplified the codebase, making it accessible not only to developers but also to managers.
 
-* Enecuum's Node [29]: This is a comprehensive framework for constructing distributed, concurrent, multithreaded applications. Initially conceived for building blockchains, it has been successfully used by Enecuum to develop its own blockchain system.
+* _Enecuum's Node_ [29]: This is a comprehensive framework for constructing distributed, concurrent, multithreaded applications. Initially conceived for building blockchains, it has been successfully used by Enecuum to develop its own blockchain system.
 
-* Hydra [30]: More than just a functional Free Monadic framework, Hydra is a demonstration of the methodology discussed in this article. Designed for building web and command-line interface (CLI) applications, it offers three engines: Free Monads, Church-Encoded Free Monads, and Final Tagless. Its rich feature set includes support for RESTful apps, SQL databases, key-value databases, multithreading, logging, concurrency, and a built-in testing framework.
+* _Hydra_ [30]: More than just a functional Free Monadic framework, Hydra is a demonstration of the methodology discussed in this article. Designed for building web and command-line interface (CLI) applications, it offers three engines: Free Monads, Church-Encoded Free Monads, and Final Tagless. Its rich feature set includes support for RESTful apps, SQL databases, key-value databases, multithreading, logging, concurrency, and a built-in testing framework.
 
 Each of these projects serves as a testament to the power and flexibility of the Functional Declarative Design methodology. By simplifying complex tasks, promoting code reusability, and abstracting away implementation details, it has significantly enhanced productivity and improved the quality of software across multiple domains.
 
-Also, the same FDD methodology and the HFM approach were used to implement custom monadic STM libraries in both Haskell and C++ (stm-free [31], cpp_stm_free [32]). These two STM libraries are fully operational although less efficient than a native Haskell’s STM. However, the approach helped to introduce a Haskell-like reliable, declarative, and composable (monadic) STM for C++ which can be seen as a success of the methodology because other STMs in C++ do not possess these properties and are very fragile in usage.
+Also, the same FDD methodology and the HFM approach were used to implement custom monadic STM libraries in both Haskell and C++ (_stm-free_ [31], _cpp_stm_free_ [32]). These two STM libraries are fully operational although less efficient than a native Haskell’s STM. However, the approach helped to introduce a Haskell-like reliable, declarative, and composable (monadic) STM for C++ which can be seen as a success of the methodology because other STMs in C++ do not possess these properties and are very fragile in usage.
 
-5. Conclusion
+## Conclusion
 
 The Functional Declarative Design (FDD) methodology presents a comprehensive approach to functional programming that harmoniously blends various concepts, including Domain-Driven Design, functional interfaces, design patterns, and SOLID principles. It proposes a versatile framework for effectively designing and building software applications in a functional programming environment.
 
@@ -319,18 +337,9 @@ The real-world applications of FDD demonstrate its practical relevance. From mob
 
 In conclusion, the FDD methodology presents a compelling vision of functional programming that is deeply rooted in practicality. Its impact on the field of functional programming is significant, serving as a roadmap for developers who aspire to master and leverage the power of functional paradigms in their day-to-day coding tasks. With FDD, we have a chance to witness the full potential of functional programming, ultimately contributing to the evolution of the software development landscape.
 
-## 1. Introduction
+## Misc
 
-### a. About the Topic
-
-Statically-typed functional languages boast numerous merits, such as robust type safety, immutability, and expressive syntax, but these can also pose challenges when designing software that effectively solves intricate problems and scales over time. While Object-Oriented Design (OOD) [1] has proven useful in structuring code in its domain, it does not always align with the functional programming paradigm. Predominantly, practices, principles, and methodologies, like Domain-Driven Design [2] and SOLID [3] principles, are centered on object-oriented and imperative programming. Therefore, there is a call for an approach specifically tailored to functional programming's unique requirements. This article introduces Functional Declarative Design (FDD), a counterpart to OOD, specifically crafted to address these needs. FDD offers a practical solution for the design and implementation of superior applications in functional programming. It not only introduces innovative solutions for functional programming difficulties but also reinterprets and adapts established principles from other paradigms, proving itself a comprehensive and adaptable methodology applicable across various functional programming languages and problem domains.
-
-TODO
-Figure 1.1 Comparison of the two methodologies
-
-This figure describes how the principles of software design can be applied to Object-Oriented Design and Functional Declarative Design. It turns out every principle can be applied to every methodology however some principles require reformulation or are less appropriate in one of those methodologies.
-
-### b. Importance
+### Importance
 
 As the demand for functional programming skills increases and organizations continue to recognize the value of functional programming languages, the need for a comprehensive methodology like FDD becomes more pronounced. By establishing a well-defined structure and approach, FDD helps developers overcome the challenges commonly associated with the functional programming paradigm. The methodology revisits the ideas of mainstream software engineering in a functional setting in a way never done to this extent before. Functional Declarative Design, therefore, represents a valuable contribution to the field of functional programming, opening the door to more accessible and maintainable software development practices.
 
@@ -348,7 +357,7 @@ This article aims to address a significant argument that has raised concerns. It
 
 The table provides a comprehensive overview of the survey results, highlighting the popularity percentages for each topic (Best Practices, Design Patterns, and Application Architectures) across different years.
 
-### 2. Background
+### Background
 
 Functional Design as a Software Engineering discipline was never well-covered compared to Object-Oriented Design. Notable achievements include (but are not limited by) this list:
 
@@ -362,7 +371,7 @@ Despite the variety of ideas, they are yet disunited and are addressing their ow
 
 This article is based particularly on the ideas the authors present in their books “Functional Design and Architecture” [17, 18] the goal of which is to provide another perspective on this topic.
   
-6. Bibliography
+## Bibliography
 
 [1] What Is Object-Oriented Design?
 https://web.archive.org/web/20070630045531/http://www.objectmentor.com/omSolutions/oops_what.html 
