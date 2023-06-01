@@ -244,7 +244,7 @@ runCookingMachine
 
 The Hierarchical Free Monads approach facilitates the use of real-world interpreters for Free languages, as well as mock interpreters for testing purposes.
 
-f. Free Monad Application Architecture
+### Free Monad Application Architecture
 
 In the FDD methodology, there are two types of application architectures:
 
