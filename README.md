@@ -12,7 +12,7 @@ This figure describes how the principles of software design can be applied to Ob
 
 In this section, the Functional Declarative Design methodology is presented. For a better illustration of the ideas, a simple example is being developed: a sandwich-making mechanism that could be embedded into a cooking game.
 
-### a. Tools for Managing Complexity
+### Tools for Managing Complexity
 
 FDD emphasizes simplicity and the management of complexity in software design. The primary goal is to control both essential (domain-specific) and accidental (artificially introduced) complexity in code. Most important but not all tools for maintaining complexity in FDD are presented below.
 
