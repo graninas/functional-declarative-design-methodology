@@ -4,8 +4,8 @@
 
 Statically-typed functional languages boast numerous merits, such as robust type safety, immutability, and expressive syntax, but these can also pose challenges when designing software that effectively solves intricate problems and scales over time. While Object-Oriented Design (OOD) [1] has proven useful in structuring code in its domain, it does not always align with the functional programming paradigm. Predominantly, practices, principles, and methodologies, like Domain-Driven Design [2] and SOLID [3] principles, are centered on object-oriented and imperative programming. Therefore, there is a call for an approach specifically tailored to functional programming's unique requirements. This article introduces Functional Declarative Design (FDD), a counterpart to OOD, specifically crafted to address these needs. FDD offers a practical solution for the design and implementation of superior applications in functional programming. It not only introduces innovative solutions for functional programming difficulties but also reinterprets and adapts established principles from other paradigms, proving itself a comprehensive and adaptable methodology applicable across various functional programming languages and problem domains.
 
-![Comparison of the two methodologies](images/two_methodologies.png?raw=true "Test")
-Figure 1.1 Comparison of the two methodologies
+![Comparison of the two methodologies](images/two_methodologies.png?raw=true "Comparison of the two methodologies")
+_Figure 1.1 Comparison of the two methodologies_
 
 This figure describes how the principles of software design can be applied to Object-Oriented Design and Functional Declarative Design. It turns out every principle can be applied to every methodology however some principles require reformulation or are less appropriate in one of those methodologies.
 
@@ -31,30 +31,38 @@ Diagrams in FDD are a recommended but not a required way to analyze the business
 
 * _Mind maps_: These are used for collecting and brainstorming requirements.
 
-Figure 1.2 Mind map: sandwich making topics
+![Mind map: Sandwich making topics](images/top_mind_map.png?raw=true "Mind map: Sandwich making topics")
+_Figure 1.2 Mind map: Sandwich making topics_
 
-Figure 1.3 Mind map: Recipe subtopics
+![Mind map: Recipe subtopics](images/recepe_mind_map.png?raw=true "Mind map: Recipe subtopics")
+_Figure 1.3 Mind map: Recipe subtopics_
 
-Figure 1.4 Mind map: Ingredients subtopics
+![Mind map: Ingredients subtopics](images/ingredients_mind_map.png?raw=true "Mind map: Ingredients subtopics")
+_Figure 1.4 Mind map: Ingredients subtopics_
 
-Figure 1.5 Mind map: Making process subtopics
+![Mind map: Making process subtopics](images/making_process_mind_maps.png?raw=true "Mind map: Making process subtopics")
+_Figure 1.5 Mind map: Making process subtopics_
 
 In the mind maps above, the domain of sandwich making is investigated. Figure 1.2 provides three high-level topics each of which is expanded in figures 1.3 (Recipe), 1.4 (Ingredients), and 1.5 (Making process). The task is simple: having a user-defined recipe for a sandwich, and try to produce it with a machine by feeding it with the available ingredients.
 
 * _Necessity diagrams_: unstructured block-like concept maps [21] for representing big blocks of an application that naturally emerge from mind maps.
 
+![Necessity diagram](images/necessity_diagram.png?raw=true "Necessity diagram")
 Figure 1.6 Necessity diagram
 
 * _Elements diagrams_: unstructured block-like concept maps for brainstorming the technical domain of the task and expanding the larger blocks from necessity diagrams. There is no limit to granularity or specificity. The diagrams are allowed to be unorganized and unstructured. Blocks may be attributed to layers (e.g., application, domain model, interoperability) and types (e.g., concept, subsystem, model, library, data).
 
+![Elements diagram](images/elements_diagram.png?raw=true "Elements diagram")
 Figure 1.7 Elements diagram
 
 _Architecture diagrams_: structured block-like concept maps that shape the high-level application architecture. These diagrams finalize the knowledge obtained through the creation of mind maps, necessity diagrams, and elements diagrams.
 
+![Architecture diagram](images/architecture_diagram.png?raw=true "Architecture diagram")
 Figure 1.8 Architecture diagram
 
 FDD encourages an iterative approach, allowing for cyclic and sporadic design processes rather than adhering to a strict waterfall model. Figure 1.8 gives an overview of this iterative approach:
- 
+
+![Iterative approach in FDD](images/iterative_process.png?raw=true "Iterative approach in FDD")
 Figure 1.9 Iterative approach in FDD
   
 ### Domain Modeling With Interpretable Domain-Specific Languages
@@ -147,6 +155,7 @@ Free monad functional interfaces adhere to the SOLID design principles as much a
 
 The Hierarchical Free Monads (HFM) approach allows for the construction of complex application architectures while maintaining proper separation of concerns, making it an invaluable tool in the FDD methodology. The core idea is to organize Free monadic languages (interfaces) hierarchically by nesting lower-level Free interfaces as arguments or return values of methods of top-level Free interfaces.
 
+![Free monad interfaces organized hierarchically](images/hfm.png?raw=true "Free monad interfaces organized hierarchically")
 Figure 1.10 Free monad interfaces organized hierarchically
 
 Extending the task of making sandwiches, we could be required to make a restaurant menu composer. In addition to sandwiches, it could be a code for making a circle or square pizzas. The following listing introduces such a language:
@@ -192,6 +201,7 @@ makeSandwich receipe =
 
 The corresponding diagram looks like the following:
 
+![Free monad interfaces for making meals](images/hfm_example.png?raw=true "Free monad interfaces for making meals")
 Figure 1.11 Free monad interfaces for making meals
 
 Free monad interfaces resemble object-oriented interfaces in the most accurate way. It’s possible to do information hiding, abstraction, and encapsulation with Hierarchical Free Monads in a similar way it’s done in object-oriented languages. For example, it’s possible to ask for an abstracted random recipe for an abstracted meal without revealing what exactly the cooking machine used. This can be achieved by adding another value constructor to CookingMethod:
@@ -254,6 +264,7 @@ In the FDD methodology, there are two types of application architectures:
 
 The HFM approach is used to achieve a 3-layered architecture.
 
+![Three layers of a Free monad application architecture](images/three_layered_architecture.png?raw=true "Three layers of a Free monad application architecture")
 Figure 1.12 Three layers of a Free monad application architecture
 
 The three layers in this approach are
@@ -264,6 +275,7 @@ The three layers in this approach are
 
 The HFM approach also respects purity and takes advantage of the separation of pure and impure layers. Pure layer: Free monad interfaces and business logic. Impure layer: interpreters (implementation).
 
+![Three layers of a Free monad application architecture](images/three_layered_architecture.png?raw=true "Three layers of a Free monad application architecture")
 Figure 1.13 Pure and impure layers
 
 By leveraging the 3-layered application architecture with Free monads, the FDD methodology enables developers to create robust, maintainable, and testable applications that effectively separate concerns and responsibilities across different layers.
