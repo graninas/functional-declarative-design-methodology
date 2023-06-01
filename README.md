@@ -4,7 +4,7 @@
 
 Statically-typed functional languages boast numerous merits, such as robust type safety, immutability, and expressive syntax, but these can also pose challenges when designing software that effectively solves intricate problems and scales over time. While Object-Oriented Design (OOD) [1] has proven useful in structuring code in its domain, it does not always align with the functional programming paradigm. Predominantly, practices, principles, and methodologies, like Domain-Driven Design [2] and SOLID [3] principles, are centered on object-oriented and imperative programming. Therefore, there is a call for an approach specifically tailored to functional programming's unique requirements. This article introduces Functional Declarative Design (FDD), a counterpart to OOD, specifically crafted to address these needs. FDD offers a practical solution for the design and implementation of superior applications in functional programming. It not only introduces innovative solutions for functional programming difficulties but also reinterprets and adapts established principles from other paradigms, proving itself a comprehensive and adaptable methodology applicable across various functional programming languages and problem domains.
 
-Figure 1.1 Comparison of the two methodologies
+![Figure 1.1 Comparison of the two methodologies](images/two_methodologies.png?raw=true "Figure 1.1 Comparison of the two methodologies")
 
 This figure describes how the principles of software design can be applied to Object-Oriented Design and Functional Declarative Design. It turns out every principle can be applied to every methodology however some principles require reformulation or are less appropriate in one of those methodologies.
 
