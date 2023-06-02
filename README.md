@@ -34,7 +34,7 @@ This article is based particularly on the ideas the authors present in their boo
 
 In this section, the _Functional Declarative Design_ methodology is presented. For a better illustration of the ideas, a simple example is being developed: a sandwich-making mechanism that could be embedded into a cooking game.
 
-<img title="Comparison of the two methodologies" src="github.com/graninas/functional-declarative-design-methodology/blob/64b17ef9c93f1a200c1e50391a3f69dc810fdebd/images/two_methodologies.png" width="500"></a>
+<img title="Comparison of the two methodologies" src="https://github.com/graninas/functional-declarative-design-methodology/blob/64b17ef9c93f1a200c1e50391a3f69dc810fdebd/images/two_methodologies.png" width="500"></a>
 _Figure 1.1 Comparison of the two methodologies_
 
 This figure describes how the principles of software design can be applied to Object-Oriented Design and Functional Declarative Design. It turns out every principle can be applied to every methodology however some principles require reformulation or are less appropriate in one of those methodologies.
