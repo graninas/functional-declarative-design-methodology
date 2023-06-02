@@ -6,7 +6,7 @@ Statically-typed functional languages boast numerous merits, such as robust type
 
 This article is based particularly on the ideas the authors present in their books [_**Functional Design and Architecture**_](https://www.manning.com/books/functional-design-and-architecture) [17, 18] the goal of which is to provide another perspective on this topic. The article makes an overview. The readers are invited to read the book to get a complete and thorough discussion on these and other topis of Software Design in Haskell/FP.
 
-![Functional Design and Architecture (Second Edition, Manning Publications)](images/FDaA_cover.png?raw=true&width=100 "Functional Design and Architecture Second Edition, Manning Publications")
+![Functional Design and Architecture (Second Edition, Manning Publications)](images/FDaA_cover.png?raw=true "Functional Design and Architecture Second Edition, Manning Publications" =100x200)
 
 ## Table of Contents
 
