@@ -98,7 +98,6 @@ FDD encourages an iterative approach, allowing for cyclic and sporadic design pr
 
 <img title="Iterative approach in FDD" src="https://github.com/graninas/functional-declarative-design-methodology/blob/a6c0819d8cfbce5398b9a571c150c99de57f18ec/images/iterative_process.png" width="600"></a>
 
-![Iterative approach in FDD](images/iterative_process.png?raw=true "Iterative approach in FDD")
 _Figure 1.9 Iterative approach in FDD_
   
 ### Domain Modeling With Interpretable Domain-Specific Languages
@@ -314,7 +313,8 @@ The three layers in this approach are
 
 The HFM approach also respects purity and takes advantage of the separation of pure and impure layers. Pure layer: Free monad interfaces and business logic. Impure layer: interpreters (implementation).
 
-![Pure and impure layers](images/pure_and_impure.png?raw=true "Pure and impure layers")
+<img title="Pure and impure layers" src="https://github.com/graninas/functional-declarative-design-methodology/blob/76d7325f5c3cb13ef6823c7aab71077f5725d1b9/images/pure_and_impure.png" width="600"></a>
+
 _Figure 1.13 Pure and impure layers_
 
 By leveraging the 3-layered application architecture with Free monads, the FDD methodology enables developers to create robust, maintainable, and testable applications that effectively separate concerns and responsibilities across different layers.
