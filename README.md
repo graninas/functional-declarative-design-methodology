@@ -335,7 +335,7 @@ Architectural design patterns represent a mechanism used for the whole skeleton 
 
 Functional design patterns address more specific problems within functional programming. Examples of these patterns include the MVar request-response pattern, Typed-untyped pattern, Typed avatar pattern, Control structure pattern, Bracket pattern, and HKD pattern. These patterns provide reusable solutions for implementing common functional programming tasks and workflows. The reader may get familiar with these patterns in the book "Functional Design and Architecture" [17,18]. 
 
-<img title="Typed-untyped design pattern" src="https://github.com/graninas/functional-declarative-design-methodology/blob/a6c0819d8cfbce5398b9a571c150c99de57f18ec/images/typed_untyped_pattern.png" width="600"></a>
+<img title="Typed-untyped design pattern" src="https://github.com/graninas/functional-declarative-design-methodology/blob/28e380d02f332d13d124d5ee2ffcb50f10786177/images/typed_untyped_pattern.png" width="600"></a>
 
 _Figure 1.14 Typed-untyped design pattern_
 
