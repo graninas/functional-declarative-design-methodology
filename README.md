@@ -4,16 +4,35 @@
 
 Statically-typed functional languages boast numerous merits, such as robust type safety, immutability, and expressive syntax, but these can also pose challenges when designing software that effectively solves intricate problems and scales over time. While Object-Oriented Design (OOD) [1] has proven useful in structuring code in its domain, it does not always align with the functional programming paradigm. Predominantly, practices, principles, and methodologies, like Domain-Driven Design [2] and SOLID [3] principles, are centered on object-oriented and imperative programming. Therefore, there is a call for an approach specifically tailored to functional programming's unique requirements. This article introduces Functional Declarative Design (FDD), a counterpart to OOD, specifically crafted to address these needs. FDD offers a practical solution for the design and implementation of superior applications in functional programming. It not only introduces innovative solutions for functional programming difficulties but also reinterprets and adapts established principles from other paradigms, proving itself a comprehensive and adaptable methodology applicable across various functional programming languages and problem domains.
 
-This article is based particularly on the ideas the authors present in their books “Functional Design and Architecture” [17, 18] the goal of which is to provide another perspective on this topic.
+This article is based particularly on the ideas the authors present in their books [_**Functional Design and Architecture**_](https://www.manning.com/books/functional-design-and-architecture) [17, 18] the goal of which is to provide another perspective on this topic. The article makes an overview. The readers are invited to read the book to get a complete and thorough discussion on these and other topis of Software Design in Haskell/FP.
+
+
+
+## Table of Contents
+
+* [Functional Declarative Design Methodology](#Functional-Declarative-Design-Methodology)
+  * [Tools for Managing Complexity](#Tools-for-Managing-Complexity)
+  * [Diagrams and Visual Representations For Modeling and Requirements Analysis](#Diagrams-and-Visual-Representations-For-Modeling-and-Requirements-Analysis)
+  * [Domain Modeling With Interpretable Domain-Specific Languages](#Domain-Modeling-With-Interpretable-Domain--Specific-Languages)
+  * [Inversion of Control and Dependency Injection](#Inversion-of-Control-and-Dependency-Injection)
+  * [Free Monad Application Architecture](#Free-Monad-Application-Architecture)
+  * [Functional Design Patterns](#Functional-Design-Patterns)
+  * [Design Principles](#Design-Principles)
+* [Case Studies and Practical Applications of Functional Declarative Design](#Case-Studies-and-Practical-Applications-of-Functional-Declarative-Design)
+* [Conclusion](#Conclusion)
+* [Misc](#Misc)
+  * [Background](Background) 
+  * [Importance](Importance)
+* [Bibliography](Bibliography)
+
+## Functional Declarative Design Methodology
+
+In this section, the _Functional Declarative Design_ methodology is presented. For a better illustration of the ideas, a simple example is being developed: a sandwich-making mechanism that could be embedded into a cooking game.
 
 ![Comparison of the two methodologies](images/two_methodologies.png?raw=true "Comparison of the two methodologies")
 _Figure 1.1 Comparison of the two methodologies_
 
 This figure describes how the principles of software design can be applied to Object-Oriented Design and Functional Declarative Design. It turns out every principle can be applied to every methodology however some principles require reformulation or are less appropriate in one of those methodologies.
-
-## Functional Declarative Design Methodology
-
-In this section, the Functional Declarative Design methodology is presented. For a better illustration of the ideas, a simple example is being developed: a sandwich-making mechanism that could be embedded into a cooking game.
 
 ### Tools for Managing Complexity
 
@@ -85,7 +104,7 @@ data Component
   | Cheese
 ```
 
-The next snipped demonstrates a domain-specific language for composing sandwich recipes and introduces two domain types for complete and incomplete sandwiches:
+The next snippet demonstrates a domain-specific language for composing sandwich recipes and introduces two domain types for complete and incomplete sandwiches:
 
 ```haskell
 data SandwichBody = SandwichBody BreadType [Component]
@@ -108,7 +127,7 @@ addComponent :: Component -> SandwichBody -> SandwichRecipe SandwichBody
 finishSandwich :: Maybe BreadType -> SandwichBody -> SandwichRecipe Sandwich
 ```
 
-This language design is not of course free of flaws, but it illustrates the concept well. A typical recipe is shown below:
+This language design is not of course free of flaws, but it does illustrate the concept well. A typical recipe is shown below:
 
 ```haskell
 mySandwich :: SandwichRecipe Sandwich
@@ -296,7 +315,7 @@ In particular, OOD patterns address objects and mutable interactions between the
 
 Architectural design patterns represent a mechanism used for the whole skeleton of the application. Examples of architectural functional design patterns include the Free monad pattern, ReaderT pattern, Final Tagless/mtl, Service Handle pattern, and effect systems. These patterns provide guidance for organizing functional applications and managing dependencies and side effects.
 
-Functional design patterns address more specific problems within functional programming. Examples of these patterns include the MVar request-response pattern, Typed-untyped pattern, Typed avatar pattern, Control structure pattern, Bracket pattern, and HKD pattern. These patterns provide reusable solutions for implementing common functional programming tasks and workflows.
+Functional design patterns address more specific problems within functional programming. Examples of these patterns include the MVar request-response pattern, Typed-untyped pattern, Typed avatar pattern, Control structure pattern, Bracket pattern, and HKD pattern. These patterns provide reusable solutions for implementing common functional programming tasks and workflows. The reader may get familiar with these patterns in the book "Functional Design and Architecture" [17,18]. 
 
 ![Typed-untyped design pattern](images/typed_untyped_pattern.png?raw=true "Typed-untyped design pattern")
 _Figure 1.14 Typed-untyped design pattern_
