@@ -18,7 +18,7 @@ This article is based particularly on the ideas the authors present in their boo
 * [Functional Declarative Design Methodology](#Functional-Declarative-Design-Methodology)
   * [Tools for Managing Complexity](#Tools-for-Managing-Complexity)
   * [Diagrams and Visual Representations For Modeling and Requirements Analysis](#Diagrams-and-Visual-Representations-For-Modeling-and-Requirements-Analysis)
-  * [Domain Modeling With Interpretable Domain-Specific Languages](#Domain-Modeling-With-Interpretable-Domain--Specific-Languages)
+  * [Domain Modeling With Interpretable Domain-Specific Languages](#Domain-Modeling-With-Interpretable-Domain-Specific-Languages)
   * [Inversion of Control and Dependency Injection](#Inversion-of-Control-and-Dependency-Injection)
   * [Free Monad Application Architecture](#Free-Monad-Application-Architecture)
   * [Functional Design Patterns](#Functional-Design-Patterns)
@@ -26,9 +26,9 @@ This article is based particularly on the ideas the authors present in their boo
 * [Case Studies and Practical Applications of Functional Declarative Design](#Case-Studies-and-Practical-Applications-of-Functional-Declarative-Design)
 * [Conclusion](#Conclusion)
 * [Misc](#Misc)
-  * [Background](Background) 
-  * [Importance](Importance)
-* [Bibliography](Bibliography)
+  * [Background](#Background) 
+  * [Importance](#Importance)
+* [Bibliography](#Bibliography)
 
 ## Functional Declarative Design Methodology
 
