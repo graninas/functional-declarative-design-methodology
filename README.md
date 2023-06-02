@@ -423,8 +423,6 @@ Functional Design as a Software Engineering discipline was never well-covered co
 
 Despite the variety of ideas, they are yet disunited and are addressing their own fractions of the Software Engineering discipline in Functional Programming. Many important answers can be certainly found and implied, especially from works by Scott Wlaschin, Debasish Ghosh, and other authors. The most comprehensive methodologies such as Railway-Oriented Programming provide a practical perspective on how to do things. In general, the material on Software Engineering in functional languages is vast, reach, and deep, but still, it doesn’t cover the subject well. Such questions as “What is a counterpart to object-oriented interfaces in functional languages” or “What design patterns in functional languages exist” or “What mainstream design principles are applicable to Functional Programming and whether the latter has its own design principles” should be addressed more carefully.
 
-This article is based particularly on the ideas the authors present in their books “Functional Design and Architecture” [17, 18] the goal of which is to provide another perspective on this topic.
-  
 ## Bibliography
 
 [1] What Is Object-Oriented Design? https://web.archive.org/web/20070630045531/http://www.objectmentor.com/omSolutions/oops_what.html
