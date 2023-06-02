@@ -34,7 +34,7 @@ This article is based particularly on the ideas the authors present in their boo
 
 In this section, the _Functional Declarative Design_ methodology is presented. For a better illustration of the ideas, a simple example is being developed: a sandwich-making mechanism that could be embedded into a cooking game.
 
-![Comparison of the two methodologies](images/two_methodologies.png?raw=true "Comparison of the two methodologies")
+<img title="Comparison of the two methodologies" src="github.com/graninas/functional-declarative-design-methodology/blob/64b17ef9c93f1a200c1e50391a3f69dc810fdebd/images/two_methodologies.png" width="500"></a>
 _Figure 1.1 Comparison of the two methodologies_
 
 This figure describes how the principles of software design can be applied to Object-Oriented Design and Functional Declarative Design. It turns out every principle can be applied to every methodology however some principles require reformulation or are less appropriate in one of those methodologies.
@@ -66,7 +66,7 @@ _Figure 1.3 Mind map: Recipe subtopics_
 ![Mind map: Ingredients subtopics](images/ingredients_mind_map.png?raw=true "Mind map: Ingredients subtopics")
 _Figure 1.4 Mind map: Ingredients subtopics_
 
-![Mind map: Making process subtopics](images/making_process_mind_maps.png?raw=true "Mind map: Making process subtopics")
+![Mind map: Making process subtopics](images/making_process_mind_map.png?raw=true "Mind map: Making process subtopics")
 _Figure 1.5 Mind map: Making process subtopics_
 
 In the mind maps above, the domain of sandwich making is investigated. Figure 1.2 provides three high-level topics each of which is expanded in figures 1.3 (Recipe), 1.4 (Ingredients), and 1.5 (Making process). The task is simple: having a user-defined recipe for a sandwich, and try to produce it with a machine by feeding it with the available ingredients.
