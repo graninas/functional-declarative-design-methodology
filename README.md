@@ -34,7 +34,8 @@ This article is based particularly on the ideas the authors present in their boo
 
 In this section, the _Functional Declarative Design_ methodology is presented. For a better illustration of the ideas, a simple example is being developed: a sandwich-making mechanism that could be embedded into a cooking game.
 
-<img title="Comparison of the two methodologies" src="https://github.com/graninas/functional-declarative-design-methodology/blob/64b17ef9c93f1a200c1e50391a3f69dc810fdebd/images/two_methodologies.png" width="500"></a>
+<img title="Comparison of the two methodologies" src="https://github.com/graninas/functional-declarative-design-methodology/blob/64b17ef9c93f1a200c1e50391a3f69dc810fdebd/images/two_methodologies.png" width="600"></a>
+
 _Figure 1.1 Comparison of the two methodologies_
 
 This figure describes how the principles of software design can be applied to Object-Oriented Design and Functional Declarative Design. It turns out every principle can be applied to every methodology however some principles require reformulation or are less appropriate in one of those methodologies.
@@ -57,36 +58,45 @@ Diagrams in FDD are a recommended but not a required way to analyze the business
 
 * _Mind maps_: These are used for collecting and brainstorming requirements.
 
-![Mind map: Sandwich making topics](images/top_mind_map.png?raw=true "Mind map: Sandwich making topics")
+<img title="Mind map: Sandwich making topics" src="https://github.com/graninas/functional-declarative-design-methodology/blob/a6c0819d8cfbce5398b9a571c150c99de57f18ec/images/top_mind_map.png" width="600"></a>
+
 _Figure 1.2 Mind map: Sandwich making topics_
 
-![Mind map: Recipe subtopics](images/recepe_mind_map.png?raw=true "Mind map: Recipe subtopics")
+<img title="Mind map: Recipe subtopics" src="https://github.com/graninas/functional-declarative-design-methodology/blob/a6c0819d8cfbce5398b9a571c150c99de57f18ec/images/recepe_mind_map.png" width="600"></a>
+
 _Figure 1.3 Mind map: Recipe subtopics_
 
-![Mind map: Ingredients subtopics](images/ingredients_mind_map.png?raw=true "Mind map: Ingredients subtopics")
+<img title="Mind map: Ingredients subtopics" src="https://github.com/graninas/functional-declarative-design-methodology/blob/a6c0819d8cfbce5398b9a571c150c99de57f18ec/images/ingredients_mind_map.png" width="600"></a>
+
 _Figure 1.4 Mind map: Ingredients subtopics_
 
-![Mind map: Making process subtopics](images/making_process_mind_map.png?raw=true "Mind map: Making process subtopics")
+<img title="Mind map: Making process subtopics" src="https://github.com/graninas/functional-declarative-design-methodology/blob/a6c0819d8cfbce5398b9a571c150c99de57f18ec/images/making_process_mind_map.png" width="600"></a>
+
 _Figure 1.5 Mind map: Making process subtopics_
 
 In the mind maps above, the domain of sandwich making is investigated. Figure 1.2 provides three high-level topics each of which is expanded in figures 1.3 (Recipe), 1.4 (Ingredients), and 1.5 (Making process). The task is simple: having a user-defined recipe for a sandwich, and try to produce it with a machine by feeding it with the available ingredients.
 
 * _Necessity diagrams_: unstructured block-like concept maps [21] for representing big blocks of an application that naturally emerge from mind maps.
 
-![Necessity diagram](images/necessity_diagram.png?raw=true "Necessity diagram")
+<img title="Necessity diagram" src="https://github.com/graninas/functional-declarative-design-methodology/blob/a6c0819d8cfbce5398b9a571c150c99de57f18ec/images/necessity_diagram.png" width="600"></a>
+
 _Figure 1.6 Necessity diagram_
 
 * _Elements diagrams_: unstructured block-like concept maps for brainstorming the technical domain of the task and expanding the larger blocks from necessity diagrams. There is no limit to granularity or specificity. The diagrams are allowed to be unorganized and unstructured. Blocks may be attributed to layers (e.g., application, domain model, interoperability) and types (e.g., concept, subsystem, model, library, data).
 
-![Elements diagram](images/elements_diagram.png?raw=true "Elements diagram")
+<img title="Elements diagram" src="https://github.com/graninas/functional-declarative-design-methodology/blob/a6c0819d8cfbce5398b9a571c150c99de57f18ec/images/elements_diagram.png" width="600"></a>
+
 _Figure 1.7 Elements diagram_
 
 _Architecture diagrams_: structured block-like concept maps that shape the high-level application architecture. These diagrams finalize the knowledge obtained through the creation of mind maps, necessity diagrams, and elements diagrams.
 
-![Architecture diagram](images/architecture_diagram.png?raw=true "Architecture diagram")
+<img title="Architecture diagram" src="https://github.com/graninas/functional-declarative-design-methodology/blob/a6c0819d8cfbce5398b9a571c150c99de57f18ec/images/architecture_diagram.png" width="600"></a>
+
 _Figure 1.8 Architecture diagram_
 
 FDD encourages an iterative approach, allowing for cyclic and sporadic design processes rather than adhering to a strict waterfall model. Figure 1.8 gives an overview of this iterative approach:
+
+<img title="Iterative approach in FDD" src="https://github.com/graninas/functional-declarative-design-methodology/blob/a6c0819d8cfbce5398b9a571c150c99de57f18ec/images/iterative_process.png" width="600"></a>
 
 ![Iterative approach in FDD](images/iterative_process.png?raw=true "Iterative approach in FDD")
 _Figure 1.9 Iterative approach in FDD_
@@ -181,7 +191,8 @@ Free monad functional interfaces adhere to the SOLID design principles as much a
 
 The Hierarchical Free Monads (HFM) approach allows for the construction of complex application architectures while maintaining proper separation of concerns, making it an invaluable tool in the FDD methodology. The core idea is to organize Free monadic languages (interfaces) hierarchically by nesting lower-level Free interfaces as arguments or return values of methods of top-level Free interfaces.
 
-![Free monad interfaces organized hierarchically](images/hfm.png?raw=true "Free monad interfaces organized hierarchically")
+<img title="Free monad interfaces organized hierarchically" src="https://github.com/graninas/functional-declarative-design-methodology/blob/a6c0819d8cfbce5398b9a571c150c99de57f18ec/images/hfm.png" width="600"></a>
+
 _Figure 1.10 Free monad interfaces organized hierarchically_
 
 Extending the task of making sandwiches, we could be required to make a restaurant menu composer. In addition to sandwiches, it could be a code for making a circle or square pizzas. The following listing introduces such a language:
@@ -227,7 +238,8 @@ makeSandwich receipe =
 
 The corresponding diagram looks like the following:
 
-![Free monad interfaces for making meals](images/hfm_example.png?raw=true "Free monad interfaces for making meals")
+<img title="Free monad interfaces for making meals" src="https://github.com/graninas/functional-declarative-design-methodology/blob/a6c0819d8cfbce5398b9a571c150c99de57f18ec/images/hfm_example.png" width="600"></a>
+
 _Figure 1.11 Free monad interfaces for making meals_
 
 Free monad interfaces resemble object-oriented interfaces in the most accurate way. It’s possible to do information hiding, abstraction, and encapsulation with Hierarchical Free Monads in a similar way it’s done in object-oriented languages. For example, it’s possible to ask for an abstracted random recipe for an abstracted meal without revealing what exactly the cooking machine used. This can be achieved by adding another value constructor to CookingMethod:
@@ -290,7 +302,8 @@ In the FDD methodology, there are two types of application architectures:
 
 The HFM approach is used to achieve a 3-layered architecture.
 
-![Three layers of a Free monad application architecture](images/three_layered_architecture.png?raw=true "Three layers of a Free monad application architecture")
+<img title="Three layers of a Free monad application architecture" src="https://github.com/graninas/functional-declarative-design-methodology/blob/a6c0819d8cfbce5398b9a571c150c99de57f18ec/images/three_layered_architecture.png" width="600"></a>
+
 _Figure 1.12 Three layers of a Free monad application architecture_
 
 The three layers in this approach are
@@ -322,7 +335,8 @@ Architectural design patterns represent a mechanism used for the whole skeleton 
 
 Functional design patterns address more specific problems within functional programming. Examples of these patterns include the MVar request-response pattern, Typed-untyped pattern, Typed avatar pattern, Control structure pattern, Bracket pattern, and HKD pattern. These patterns provide reusable solutions for implementing common functional programming tasks and workflows. The reader may get familiar with these patterns in the book "Functional Design and Architecture" [17,18]. 
 
-![Typed-untyped design pattern](images/typed_untyped_pattern.png?raw=true "Typed-untyped design pattern")
+<img title="Typed-untyped design pattern" src="https://github.com/graninas/functional-declarative-design-methodology/blob/a6c0819d8cfbce5398b9a571c150c99de57f18ec/images/typed_untyped_pattern.png" width="600"></a>
+
 _Figure 1.14 Typed-untyped design pattern_
 
 Lastly, functional idioms are essential building blocks in functional programming that define specific behaviors and properties. Examples of functional idioms include monoid, functor, applicative functor, monad, foldable, and traversable, among others. These idioms form the basis of functional programming, enabling developers to leverage their mathematical properties to write expressive, concise, and reusable code.
