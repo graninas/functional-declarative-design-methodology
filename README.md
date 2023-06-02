@@ -428,35 +428,65 @@ This article is based particularly on the ideas the authors present in their boo
 ## Bibliography
 
 [1] What Is Object-Oriented Design? https://web.archive.org/web/20070630045531/http://www.objectmentor.com/omSolutions/oops_what.html
+
 [2] E. Evans, “Domain-Driven Design: Tackling Complexity in the Heart of Software”, Addison-Wesley Professional 2003
+
 [3] R.C. Martin, “Design Principles and Design Patterns”, pp 4-16, 2000. http://staff.cs.utu.fi/~jounsmed/doos_06/material/DesignPrinciplesAndPatterns.pdf
+
 [4] “2018 State of Haskell Survey Results” https://taylor.fausak.me/2018/11/18/2018-state-of-haskell-survey-results/
+
 [5] “2019 State of Haskell Survey Results” https://taylor.fausak.me/2019/11/16/haskell-survey-results/
+
 [6] “2020 State of Haskell Survey Results” https://taylor.fausak.me/2020/11/22/haskell-survey-results/
+
 [7] “2021 State of Haskell Survey Results” https://taylor.fausak.me/2021/11/16/haskell-survey-results/
+
 [8] “2022 State of Haskell Survey Results” https://taylor.fausak.me/2022/11/18/haskell-survey-results/
+
 [9] “Haskell Library. lens: Lenses, Folds and Traversals.” https://hackage.haskell.org/package/lens
+
 [10] S. Liang, P. Hudak, and M. Jones, “Monad transformers and modular interpreters,” in Proceedings of the 22nd ACM SIGPLAN-SIGACT symposium on Principles of programming languages, pp. 333–343, 1995.
+
 [11] S. Maguire, “Monad transformers and modular interpreters,” Self-published, 2021. https://leanpub.com/algebra-driven-design
+
 [12] S. Wlaschin, “Railway Oriented Programming.” https://fsharpforfunandprofit.com/rop/
+
 [13] S. Wlaschin, “Domain Modeling Made Functional: Tackle Software Complexity with Domain-Driven Design and F#,” Pragmatic Bookshelf, 2018
+
 [14] D. Ghosh, “Functional and Reactive Domain Modeling”, Manning Publications, 2016
+
 [15] O. Kiselyov, A. Sabry, and C. Swords, “Extensible effects: an alternative to monad transformers,” ACM SIGPLAN Notices, vol. 48, no. 12, pp. 59–70, 2013.
+
 [16] O. Kiselyov and H. Ishii, “Freer monads, more extensible effects,” ACM SIGPLAN Notices, vol. 50, no. 12, pp. 94–105, 2015
+
 [17] A. Granin, “Functional Design and Architecture: Building Real Programs in Haskell,” Self-published, 2020. https://leanpub.com/functional-design-and-architecture
+
 [18] A. Granin, “Functional Design and Architecture,” Manning Publications, 2023
+
 [19] E. Kmett, “Free Monads for Less (Part 1 of 3): Codensity.” http://comonad.com/reader/2011/free-monads-for-less/
+
 [20] “What is mind mapping? What Are Its Uses?” https://www.mindmaps.com/what-is-mind-mapping/
+
 [21] “Concept maps” https://learningcenter.unc.edu/tips-and-tools/using-concept-maps/
+
 [22] M. Fowler, Rebecca Parsons, “Domain-Specific Languages,” Addison-Wesley Professional, 2010
+
 [23] D. Ghosh, “DSLs in Action,” Manning Publications, 2010
+
 [24] “Haskell Library. free: Monads for free” https://hackage.haskell.org/package/free
-[94] Dependency injection for records-of-functions.” https://hackage.haskell.org/package/dep-t
+
 [25] Atze van der Ploeg, O. Kiselyov, “Reflection without Remorse. Revealing a hidden sequence to speed up monadic reflection.” https://okmij.org/ftp/Haskell/zseq.pdf
+
 [26] “PureScript Presto”: https://github.com/juspay/purescript-presto
+
 [27] “PureScript Presto Backend”: https://github.com/juspay/purescript-presto-backend
+
 [28] “EulerHS”: https://github.com/juspay/euler-hs
+
 [29] “Enecuum Node”: https://github.com/Enecuum/Node
+
 [30] “Hydra”: https://github.com/graninas/Hydra
+
 [31] “stm-free: A little STM on Free monads for Haskell” https://github.com/graninas/stm-free
+
 [32] “cpp_stm_free: C++ Software Transactional Memory library” https://github.com/graninas/cpp_stm_free
