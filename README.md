@@ -6,7 +6,11 @@ Statically-typed functional languages boast numerous merits, such as robust type
 
 This article is based particularly on the ideas the authors present in their books [_**Functional Design and Architecture**_](https://www.manning.com/books/functional-design-and-architecture) [17, 18] the goal of which is to provide another perspective on this topic. The article makes an overview. The readers are invited to read the book to get a complete and thorough discussion on these and other topis of Software Design in Haskell/FP.
 
-<img src="https://github.com/graninas/functional-declarative-design-methodology/blob/5a994d49d2de738105601f6dc3572df4b5a197d2/images/FDaA_cover.png" width="100">
+<div class="row">
+  <div class="column">
+<img src="https://github.com/graninas/functional-declarative-design-methodology/blob/5a994d49d2de738105601f6dc3572df4b5a197d2/images/FDaA_cover.png" width="200"></div>
+  <div class="column"><img src="https://github.com/graninas/functional-declarative-design-methodology/blob/9942840a5cb11c8844afa452a579031548d16225/images/FDaA_FE_cover.png" width="200"></div>
+</div>
 
 ## Table of Contents
 
