@@ -19,6 +19,7 @@ This article is based particularly on the ideas the authors present in their boo
   * [Tools for Managing Complexity](#Tools-for-Managing-Complexity)
   * [Diagrams and Visual Representations For Modeling and Requirements Analysis](#Diagrams-and-Visual-Representations-For-Modeling-and-Requirements-Analysis)
   * [Domain Modeling With Interpretable Domain-Specific Languages](#Domain-Modeling-With-Interpretable-Domain-Specific-Languages)
+  * [The Hierarchical Free Monads Approach](#the-hierarchical-free-monads-approach)
   * [Inversion of Control and Dependency Injection](#Inversion-of-Control-and-Dependency-Injection)
   * [Free Monad Application Architecture](#Free-Monad-Application-Architecture)
   * [Functional Design Patterns](#Functional-Design-Patterns)
