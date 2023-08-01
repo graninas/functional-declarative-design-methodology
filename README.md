@@ -212,10 +212,6 @@ type PizzaRecipe a = Free PizzaConstructor a
 These two languages can finally be merged into a single hierarchy with a unified language, for example, a cooking machine that is able to cook both:
 
 ```haskell
-data Meal
- = PreparedPizza Pizza
- | PreparedSandwich Sandwich
- deriving (Show, Eq, Ord)
 
 data CookingMethod next
  = MakePizza (PizzaRecipe Pizza) (Pizza -> next)
@@ -224,9 +220,14 @@ data CookingMethod next
 type CookingMachine a = Free CookingMethod a
 ```
 
-Smart constructors of this language are responsible for wrapping the result into the Meal type:
+Smart constructors of this language are responsible for wrapping the result into the `Meal` type, the final product of `CookingMachine`:
 
 ```haskell
+data Meal
+ = PreparedPizza Pizza
+ | PreparedSandwich Sandwich
+ deriving (Show, Eq, Ord)
+
 makePizza :: PizzaRecipe Pizza -> CookingMachine Meal
 makePizza receipe =
   PreparedPizza <$> liftF (MakePizza receipe id)
