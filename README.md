@@ -75,7 +75,7 @@ _Figure 1.4 Mind map: Ingredients subtopics_
 
 _Figure 1.5 Mind map: Making process subtopics_
 
-In the mind maps above, the domain of sandwich making is investigated. Figure 1.2 provides three high-level topics each of which is expanded in figures 1.3 (Recipe), 1.4 (Ingredients), and 1.5 (Making process). The task is simple: having a user-defined recipe for a sandwich, and try to produce it with a machine by feeding it with the available ingredients.
+In the mind maps above, the domain of sandwich making is investigated. Figure 1.2 provides three high-level topics each of which is expanded in figures 1.3 (Recipe), 1.4 (Ingredients), and 1.5 (Making process). The task is simple: having a user-defined recipe for a sandwich, try to produce it with a machine by feeding it with the available ingredients.
 
 * _Necessity diagrams_: unstructured block-like concept maps [21] for representing big blocks of an application that naturally emerge from mind maps.
 
@@ -134,7 +134,7 @@ data SandwichConstructor next
 type SandwichRecipe a = Free SandwichConstructor a
 ```
 
-This language allows constructing of sandwiches and following the requirements for their structure as it’s described in Figure 1.3. It’s possible to start making a new sandwich, then either finish it or add another component. The sequencing of actions (starting a sandwich should go first) is made through the dependency over the value SandwichBody that is either returned as a result or accepted as an argument. Smart constructors corresponding to the methods of this language communicate the idea of dependency through data in a more explicit way:
+This language allows constructing of sandwiches and following the requirements for their structure as it’s described in Figure 1.3. It’s possible to start making a new sandwich, then either finish it or add another component. The sequencing of actions (starting a sandwich should go first) is made through the dependency over the value `SandwichBody` that is either returned as a result or accepted as an argument. Smart constructors corresponding to the methods of this language communicate the idea of dependency through data in a more explicit way:
 
 ```haskell
 startNewSandwich :: BreadType -> Component -> SandwichRecipe SandwichBody
@@ -180,7 +180,7 @@ Free monad functional interfaces share many desirable properties with object-ori
 In addition to these properties, Free monads possess their own:
 
 1. Declarative: Using A Free monadic interface means using a monadic eDSL. This eDSL allows for composing declarative scenarios that represent a business domain and are free of non-related implementation details.
-2. Monadic. Free monadic scenarios will be monadic and monadically composable. All the generic monadic facilities such as Control.Monad will work for every Free monadic eDSL out of the box, as well will work the do notation in Haskell (and for comprehension in Scala).
+2. Monadic. Free monadic scenarios will be monadic and monadically composable. All the generic monadic facilities such as `Control.Monad` will work for every Free monadic eDSL out of the box, as well will work the do notation in Haskell (and for comprehension in Scala).
 3. Interpretable. A Free monadic eDSL should be traversed and interpreted against a different context, mostly, a real environment.
 
 Using a specific Free monad implementation (normal Free [24], Church-encoded Free [24], “No remorse” Free [25]) may affect the performance of the code but not its conceptual structure.
@@ -195,7 +195,7 @@ The Hierarchical Free Monads (HFM) approach allows for the construction of compl
 
 _Figure 1.10 Free monad interfaces organized hierarchically_
 
-Extending the task of making sandwiches, we could be required to make a restaurant menu composer. In addition to sandwiches, it could be a code for making a circle or square pizzas. The following listing introduces such a language:
+Extending the task of making sandwiches, we could be required to make a restaurant menu composer. In addition to sandwiches, it could be a code for making circle or square pizzas. The following listing introduces such a language:
 
 ```haskell
 data Crust = ThickCrust | ThinCrust
@@ -243,7 +243,7 @@ The corresponding diagram looks like the following:
 
 _Figure 1.11 Free monad interfaces for making meals_
 
-Free monad interfaces resemble object-oriented interfaces in the most accurate way. It’s possible to do information hiding, abstraction, and encapsulation with Hierarchical Free Monads in a similar way it’s done in object-oriented languages. For example, it’s possible to ask for an abstracted random recipe for an abstracted meal without revealing what exactly the cooking machine used. This can be achieved by adding another value constructor to CookingMethod:
+Free monad interfaces resemble object-oriented interfaces in the most accurate way. It’s possible to do information hiding, abstraction, and encapsulation with Hierarchical Free Monads in a similar way it’s done in object-oriented languages. For example, it’s possible to ask for an abstracted random recipe for an abstracted meal without revealing what exactly the cooking machine used. This can be achieved by adding another value constructor to `CookingMethod`:
 
 ```haskell
 data CookingMethod next
