@@ -447,7 +447,7 @@ Despite the variety of ideas, they are yet disunited and are addressing their ow
 
 [10] S. Liang, P. Hudak, and M. Jones, “Monad transformers and modular interpreters,” in Proceedings of the 22nd ACM SIGPLAN-SIGACT symposium on Principles of programming languages, pp. 333–343, 1995.
 
-[11] S. Maguire, “Monad transformers and modular interpreters,” Self-published, 2021. https://leanpub.com/algebra-driven-design
+[11] S. Maguire, “Algebra-Driven Design” Self-published, 2021. https://leanpub.com/algebra-driven-design
 
 [12] S. Wlaschin, “Railway Oriented Programming.” https://fsharpforfunandprofit.com/rop/
 
