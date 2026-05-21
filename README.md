@@ -45,7 +45,7 @@ This figure describes how the principles of software design can be applied to Ob
 
 FDD emphasizes simplicity and the management of complexity in software design. The primary goal is to control both essential (domain-specific) and accidental (artificially introduced) complexity in code. Most important but not all tools for maintaining complexity in FDD are presented below.
 
-* Free monads [19]. In FDD, Free monads are considered a functional counterpart to object-oriented interfaces (Java and C# interfaces, abstract classes in C++). Free monads offer their unique properties and capabilities. Free monadic interfaces are interpretable, monadic (capable of handling sequences of actions), and relatively simple.  By defining an abstract Free monadic language for a given domain, complexity is hidden behind the interpretation process, with interpreters serving a similar role as class implementations of an object-oriented interface. Business logic written against interfaces, whether Free monad or object-oriented, depends only on the necessary information, allowing for the substitution of implementations, even at runtime.
+* Free monads. In FDD, Free monads are considered a functional counterpart to object-oriented interfaces (Java and C# interfaces, abstract classes in C++). Free monads offer their unique properties and capabilities. Free monadic interfaces are interpretable, monadic (capable of handling sequences of actions), and relatively simple.  By defining an abstract Free monadic language for a given domain, complexity is hidden behind the interpretation process, with interpreters serving a similar role as class implementations of an object-oriented interface. Business logic written against interfaces, whether Free monad or object-oriented, depends only on the necessary information, allowing for the substitution of implementations, even at runtime.
 
 * Domain-specific languages (DSLs) [22, 23]. Free monads and algebraic data types can be used to create embedded domain-specific languages (eDSLs) or domain-agnostic application frameworks. DSLs, primarily embedded DSLs, have a great complexity reduction power and allow make the actual business logic much more transparent from the business point of view.
 
@@ -417,7 +417,7 @@ The table provides a comprehensive overview of the survey results, highlighting 
 
 Functional Design as a Software Engineering discipline was never well-covered compared to Object-Oriented Design. Notable achievements include (but are not limited by) this list:
 
-* Category Theory and Abstract Algebra in application to generic functional programming: lenses, folds, traversals [9], monads [10] et cetera.
+* Category Theory and Abstract Algebra in application to generic functional programming: lenses, folds, traversals [9], monads et cetera.
 * Algebraic domain modeling [11].
 * Railway-Oriented Programming (ROP) is an architectural design pattern for a composable way to handle operations that can result in success or failure, commonly known as "railway tracks" or "success and failure paths." [12]
 * Domain-Driven Design being rethought for functional domain modeling [13, 14]
@@ -445,8 +445,6 @@ Despite the variety of ideas, they are yet disunited and are addressing their ow
 
 [9] “Haskell Library. lens: Lenses, Folds and Traversals.” https://hackage.haskell.org/package/lens
 
-[10] S. Liang, P. Hudak, and M. Jones, “Monad transformers and modular interpreters,” in Proceedings of the 22nd ACM SIGPLAN-SIGACT symposium on Principles of programming languages, pp. 333–343, 1995.
-
 [11] S. Maguire, “Algebra-Driven Design” Self-published, 2021. https://leanpub.com/algebra-driven-design
 
 [12] S. Wlaschin, “Railway Oriented Programming.” https://fsharpforfunandprofit.com/rop/
@@ -455,17 +453,9 @@ Despite the variety of ideas, they are yet disunited and are addressing their ow
 
 [14] D. Ghosh, “Functional and Reactive Domain Modeling”, Manning Publications, 2016
 
-[15] O. Kiselyov, A. Sabry, and C. Swords, “Extensible effects: an alternative to monad transformers,” ACM SIGPLAN Notices, vol. 48, no. 12, pp. 59–70, 2013.
-
-[16] O. Kiselyov and H. Ishii, “Freer monads, more extensible effects,” ACM SIGPLAN Notices, vol. 50, no. 12, pp. 94–105, 2015
-
 [17] A. Granin, “Functional Design and Architecture: Building Real Programs in Haskell,” Self-published, 2020. https://leanpub.com/functional-design-and-architecture
 
 [18] A. Granin, “Functional Design and Architecture,” Manning Publications, 2023
-
-[19] E. Kmett, “Free Monads for Less (Part 1 of 3): Codensity.” http://comonad.com/reader/2011/free-monads-for-less/
-
-[20] “What is mind mapping? What Are Its Uses?” https://www.mindmaps.com/what-is-mind-mapping/
 
 [21] “Concept maps” https://learningcenter.unc.edu/tips-and-tools/using-concept-maps/
 
